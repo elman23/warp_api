@@ -1,8 +1,10 @@
-pub mod api;
+mod handlers;
+mod models;
+mod routes;
 
 #[tokio::main]
 async fn main() {
-    let routes = api::routes::routes();
+    let routes = routes::routes();
 
     println!("Server started at http://localhost:8000");
     warp::serve(routes).run(([127, 0, 0, 1], 8000)).await;
